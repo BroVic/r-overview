@@ -1,0 +1,294 @@
+---
+title: "Overview of Statistical Programming with R"
+author: "Victor Ordu"
+date: "19/08/2020"
+output:
+  powerpoint_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+pkg <- "purrr"
+if (!requireNamespace(pkg, quietly = TRUE))
+  install.packages(pkg)
+
+sections <- list(
+  what = "What is R?",
+  get = "Getting R",
+  syntax = "R syntax",
+  use = "Practical Uses",
+  prospect = "Prospects",
+  `next` = "What Next?"
+)
+
+# adder <- function(add) {
+#   sec <- 0L
+#   function() {
+#     sec <<- sec + add
+#     sec
+#   }
+# }
+# add_one <- adder(1)
+```
+
+
+## Outline
+
+```{r outline_bullets, results='asis', echo=FALSE}
+print_bullet <- function(x) {
+  stopifnot(is.character(x))
+  cat("-", x, fill = TRUE)
+}
+
+purrr::walk(sections, print_bullet)
+```
+
+
+# `r sections[['what']]`
+
+---
+
+- R is a programming language that is used for analysing data
+- Data is becoming more important, so tools like R are more relevant
+- Knowing how to manipulate, organize and analyze data is becoming an important skill set.
+- Data science is one of the high-paying and highly valued jobs in current times.
+- Many jobs can be done 100% remotely.
+
+# `r sections[['get']]`
+
+---
+
+- Installing R is very easy and it's 100% free!
+- Numerous free resources and courses.
+- Global community to support you in your growth.
+- All you need is passion to learn it.
+- Easy to learn: After a few weeks can use for any project.
+
+# `r sections[['syntax']]`
+## Create objects and name them
+
+```
+name <- object
+```
+where `<-` is the **assignment operator**. It binds a name to an object.
+
+For example, to create an object named `life` that has the value `42`
+
+```{r}
+life <- 42
+life
+```
+---
+
+**Comments**: Anything after a `#` is a comment.
+
+- In programming languages, they are used for writing normal language text in the source file. 
+- They are used mainly to explain what the code is doing or explain why the programmer decided to do a particular.
+- Comments help other programmers understand the code
+- Comments help you to remember why you wrote the code the way you did it.
+
+---
+
+![](www/only-god-knows.jpg){width=630px}
+
+---
+
+R uses the **combine** function `c()` to join together values of the same type i.e. numbers, characters, etc into a collection called a vector.
+
+```{r vector}
+# Create a vector by combining together many numbers
+many <- c(life, 54, 65, 76, 87, 98, 102)
+
+# Print out the value of the object
+many
+```
+## Data structures
+## Operators
+
+- Arithmetic operators
+
+```{r arithmetic}
+x <- 8
+y <- 2
+
+x + y
+x - y
+x * y   # multiply
+x / y   # divide
+```
+
+---
+
+- Comparison operators
+
+```{r comparison}
+x == y
+x != y
+x > y
+x > y
+```
+
+----
+
+- Logical operators
+
+ && - **and**
+ || = **or**
+ 
+```{r logical}
+(x == y) && (x > y)
+(x == y) || (x > y)
+```
+
+## Control flow
+### Conditionals
+
+- `if`, `else if`, `else`: These can be used to instruct a particular part of the code to be run or not run.
+
+- For example take this instruction:  
+*If `x` is greater than `y`, say "Yes o!", otherwise say "No way!"*
+
+---
+
+- In code it will look like this:
+
+``` {r control_flow, eval = FALSE}
+# Note that x is 8 and y is 2
+if (x > y) {
+  "Yes o!"
+} else {
+  "No way!"
+}
+```
+*When the result inside if() is `TRUE`, everything in between the braces is executed. If it is `FALSE`, everything in the `else` portion is executed*  
+What is the result of the above code?
+
+---
+
+### Loops
+Loops allow us to run a code block over and over again.
+
+![](www/loop.webp)
+
+For further explanations on loops, read **[this article](https://adventureswithr.wordpress.com/2020/08/11/r-loops/)**.
+
+# `r sections[['use']]`
+## Read in a file
+Example read a table from a CSV file called *mockdata.csv*.
+
+![](www/mockdata.png)
+
+---
+
+Use `read.csv()` function to read the file into R and at the same time create an object
+
+```{r read_csv}
+mydata <- read.csv("mockdata.csv")
+
+# Print out the data inside R
+mydata
+```
+
+
+## Wrangle data
+Change the column names
+
+*Task: Use title case for all the column headers*
+
+```{r wrangle-1}
+colnames(mydata)
+colnames(mydata) <- c("Number", "Key", "Age", "Sex", "Height", "Location")
+colnames(mydata)
+```
+
+---
+
+Remove a column
+
+*Task: The Serial number is useless to me. Remove them.*
+
+```{r wrangle-2}
+ncol(mydata)   # number of columns
+mydata["Number"] <- NULL
+ncol(mydata)
+```
+
+---
+
+Filter a data for a particular term
+
+*Task: Give me only the records of those from Abuja*
+
+```{r wrangle-3}
+nrow(mydata)
+abj.only <- subset(mydata, Location == "Abuja")
+nrow(abj.only)
+```
+
+## Explore data
+Sometimes you don't want to personally look at the data. In fact, sometimes you want your program to look at the data.
+
+![](www/Detective-with-magnifying-glass.jpg)
+
+---
+
+### Check the structure
+
+```{r explore_str}
+dim(mydata)
+str(mydata)
+```
+
+---
+
+### Summarize the data
+
+```{r explore_summ}
+summary(mydata)
+```
+
+---
+
+### Compute some stats
+
+```{r}
+# Average age
+mean(mydata$Age)
+
+# Tallest person
+max(mydata$Height)
+
+# Most from location (not numeric, tabulate first to get counts)
+tbl <- table(mydata$Location)
+max(tbl)
+```
+
+## Visualize data
+One of R strongest suits is the ability to draw superb graphs.
+
+```{r}
+barplot(tbl)
+```
+
+# `r sections[['prospect']]`
+## Web applications
+## Database administration
+## Report generation
+## Draw maps
+## Build websites
+## Scrape web pages
+## Numerous packages that do different things
+
+
+# `r sections[['next']]`
+
+---
+
+- Ask questions
+- Follow our blog
+- Follow us on Twitter
+- Join our Slack group
+
+
+
