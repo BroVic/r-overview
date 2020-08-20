@@ -5,17 +5,17 @@ no,key,age,sex,height,location
 4,D,24,male,1.13,Abuja
 5,E,25,female,1.4,Lagos
 6,F,26,female,1.52,Kaduna
-7,G,27,female,1.06,Jos
-8,H,28,male,1.25,
-9,I,29,male,1.06,
-10,J,30,male,1.12,not known
-11,K,31,female,0.96,not known
-12,L,32,female,0.93,not known
-13,M,33,,1.17,Port Harcourt
-14,N,34,female,1.31,Maiduguri
-15,O,35,,1.48,Gombe
-16,P,36,male,0.99,Lsgos
+7,G,27,female,1.06,Makurdi
+8,H,28,male,1.25,Abuja
+9,I,29,male,1.06,Lagos
+10,J,30,male,1.12,Abuja
+11,K,31,female,0.96,Sokoto
+12,L,32,female,0.93,Lagos
+13,M,33,female,1.17,Abuja
+14,N,34,female,1.31,Makurdi
+15,O,35,male,1.48,Makurdi
+16,P,36,male,0.99,Lagos
 17,Q,37,female,1.31,Makurdi
 18,R,38,male,1.24,Sokoto
-19,S,39,female,1.25,Akure
-20,T,40,female,0.96,Minna
+19,S,39,female,1.25,Lagos
+20,T,40,female,0.96,Sokoto

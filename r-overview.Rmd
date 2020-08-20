@@ -64,37 +64,50 @@ try(purrr::walk(sections, print_bullet), silent = TRUE)
 
 ---
 
-- Installing R is very easy and it's 100% free!
+- Installing R is very easy
+- R is 100% free!
 - Numerous free resources and courses.
-- Global community to support you in your growth.
-- All you need is passion to learn it.
+- Global community to support learners.
 - Easy to learn: After a few weeks can use for any project.
+
+
+All you need is curiosity and passion!
 
 # `r sections[['syntax']]`
 ## Create objects and name them
 
+Syntax means language rules.
+
+Basic operation is creating objects in memory & naming them.
+
 ```
 name <- object
 ```
-where `<-` is the **assignment operator**. It binds a name to an object.
+where `<-` is the **assignment operator**.
 
-For example, to create an object named `life` that has the value `42`
+For example, to create an object named `life` that has the value `42`:
 
 ```{r}
 life <- 42
 life
 ```
----
-
-**Comments**: Anything after a `#` is a comment.
-
-- In programming languages, they are used for writing normal language text in the source file. 
-- They are used mainly to explain what the code is doing or explain why the programmer decided to do a particular.
-- Comments help other programmers understand the code
-- Comments help you to remember why you wrote the code the way you did it.
 
 ---
 
+**Comments**: 
+
+Anything after a `#` is a comment.
+
+- Used for writing normal text alongside the code. 
+- Used mainly to explain:
+  + what the code is doing
+  + Why a particular construct was used
+- Helps other programmers understand the code
+- Helps the author to remember why
+
+---
+
+*Use comments - don't trust your memory!*<br><br>
 <div id=imgC align="center">
 ![](www/img/only-god-knows.jpg){width=500px}
 </div>
@@ -102,7 +115,9 @@ life
 
 ---
 
-R uses the **combine** function `c()` to join together values of the same type i.e. numbers, characters, etc into a collection called a vector.
+R uses the **combine** function `c()` to join together values of the same type i.e. numbers, characters, etc.
+
+These collections of data are called vectors.
 
 ```{r vector}
 # Create a vector by combining together many numbers
@@ -111,10 +126,17 @@ many <- c(life, 54, 65, 76, 87, 98, 102)
 # Print out the value of the object
 many
 ```
+
 ## Data structures
+Examples include:
+
+- **Vectors**: 1-dimensional chain of data with same type e.g. numbers, words.
+- **Data frames**: 2-dimensional tables with rows and columns
+- **Lists**: A container that can contain any type of object, and that supports hiearchies.
+
 ## Operators
 
-- Arithmetic operators
+### Arithmetic operators
 
 ```{r arithmetic}
 x <- 8
@@ -128,7 +150,7 @@ x / y   # divide
 
 ---
 
-- Comparison operators
+### Comparison operators
 
 ```{r comparison}
 x == y
@@ -139,10 +161,10 @@ x > y
 
 ----
 
-- Logical operators
+### Logical operators
 
- && - **and**
- || = **or**
+ `&&` means **AND**  
+ `||` means **OR**
  
 ```{r logical}
 (x == y) && (x > y)
@@ -155,11 +177,11 @@ x > y
 - `if`, `else if`, `else`: These can be used to instruct a particular part of the code to be run or not run.
 
 - For example take this instruction:  
-*If `x` is greater than `y`, say "Yes o!", otherwise say "No way!"*
+*If `x` is greater than `y`, print "Yes o!", otherwise print "No way!"*
 
 ---
 
-- In code it will look like this:
+- Using R code, it would look like this:
 
 ``` {r control_flow, eval = FALSE}
 # Note that x is 8 and y is 2
@@ -169,27 +191,30 @@ if (x > y) {
   "No way!"
 }
 ```
-*When the result inside if() is `TRUE`, everything in between the braces is executed. If it is `FALSE`, everything in the `else` portion is executed*  
-What is the result of the above code?
+
+*When the expression in `if()` is `TRUE`, the code in that part is executed. If `FALSE`, the `else` part is executed*.    
+
+**What is the result?**
 
 ---
 
 ### Loops
-Loops allow us to run a code block over and over again.
 
 ![](www/img/loop.webp)
 
-For further explanations on loops, read **[this article](https://adventureswithr.wordpress.com/2020/08/11/r-loops/)**.
+Loops allow us to run a code block over and over again.
+
+For a simple explanation of loops, read **[this article](https://adventureswithr.wordpress.com/2020/08/11/r-loops/)**.
 
 # `r sections[['use']]`
-## Read in a file
-Example read a table from a CSV file called *mockdata.csv*.
+## Read data from a file
+_Task: Read a table from a CSV file called **mockdata.csv**_.
 
 ![](www/img/mockdata.png)
 
 ---
 
-Use `read.csv()` function to read the file into R and at the same time create an object
+Use `read.csv()` function to read the file into R and at the same time create an object called `mydata`.
 
 ```{r read_csv}
 mydata <- read.csv("mockdata.csv")
@@ -200,7 +225,7 @@ mydata
 
 
 ## Wrangle data
-Change the column names
+### Change the column names
 
 *Task: Use title case for all the column headers*
 
@@ -212,7 +237,7 @@ colnames(mydata)
 
 ---
 
-Remove a column
+### Remove a column
 
 *Task: "The Serial numbers are of no use to me. Remove them."*
 
@@ -224,7 +249,7 @@ ncol(mydata)
 
 ---
 
-Filter a data for a particular term
+### Filter a data for a particular term
 
 *Task: Give me only the records of those from Abuja*
 
@@ -258,7 +283,7 @@ summary(mydata)
 
 ---
 
-### Compute some stats
+### Compute some statistics
 
 ```{r}
 # Average age
@@ -288,35 +313,38 @@ R can be used to create dynamic web pages for interactive data analysis.
 - See a Shiny application we developed to explore global COVID-19 data **[here](https://victorordu.shinyapps.io/covid/)**.
 
 ## Database administration
-R can be used to create as well as query databases.
-It works very well with DBMS like SQLite, MySQL, SQL Server, etc
-R can also be used to connect to massive Big Data such as Sparx.
 
----
+- R can be used to create as well as query databases.
+- It works very well with DBMS like SQLite, MySQL, SQL Server, etc
+- R can also be used to connect to massive Big Data such as Sparx.
 
 ## Generate documents
-Using what is known as R Markdown, we can create dynamic documents.
-The value of this is that R code is placed right inside a document. When it is evaluated, all the results of the code are placed in the resulting document.
-A good is example is this presentation. It is created entirely in R Markdown. Code can be viewed [here](https://github.com/BroVic/r-overview/blob/master/r-overview.Rmd).
 
----
+- Using what is known as R Markdown, we can create dynamic documents.
+- The value of this is that R code is placed right inside a document. - When it is evaluated, all the results of the code are placed in the resulting document.
+- A good is example is this presentation. It is created entirely in R Markdown. Code can be viewed [here](https://github.com/BroVic/r-overview/blob/master/r-overview.Rmd).
 
 ## Draw maps
-As part of its graphical abilities, R can draw maps.
-There are packages that have been developed to draw different types of maps.
-We developed a package called **_naijR_** that can draw maps for Nigeria.
+
+- As part of its graphical abilities, R can draw maps.
+- There are packages that have been developed to draw different types of maps.
+- We developed a package called **_naijR_** that can draw maps for Nigeria.
+
+---
 
 ```{r, warning=FALSE}
 try(naijR::map_ng(title = "Map of Nigeria"), silent = TRUE)
 ```
 
----
+## Many packages for different tasks
 
 Numerous packages that do different things e.g.
+
 - build websites
 - scrape web pages
+- and many, many more!
 
-For a comprehensive list of the use of R in various disciplines, visit [cRAN Task Views](https://cran.r-project.org/web/views/).
+For a comprehensive list of the use of R in various disciplines, visit [CRAN Task Views](https://cran.r-project.org/web/views/).
 
 
 # `r sections[['next']]`
