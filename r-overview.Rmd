@@ -1,7 +1,7 @@
 ---
 title: "Overview of Statistical Programming with R"
-author: "Victor Ordu"
-date: "19/08/2020"
+author: "DevSolutions Ltd."
+date: "22/08/2020"
 output:
   powerpoint_presentation: default
   ioslides_presentation: default
@@ -9,9 +9,13 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-pkg <- "purrr"
-if (!requireNamespace(pkg, quietly = TRUE))
-  install.packages(pkg)
+
+try({
+  pkg <- "purrr"
+  if (!requireNamespace(pkg, quietly = TRUE))
+    install.packages(pkg)
+}, silent = TRUE
+)
 
 sections <- list(
   what = "What is R?",
@@ -41,7 +45,7 @@ print_bullet <- function(x) {
   cat("-", x, fill = TRUE)
 }
 
-purrr::walk(sections, print_bullet)
+try(purrr::walk(sections, print_bullet), silent = TRUE)
 ```
 
 
