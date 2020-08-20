@@ -3,17 +3,18 @@ title: "Overview of Statistical Programming with R"
 author: "DevSolutions Ltd."
 date: "22/08/2020"
 output:
+  ioslides_presentation:
+    css: www/styles.css
   powerpoint_presentation: default
-  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 try({
-  pkg <- "purrr"
-  if (!requireNamespace(pkg, quietly = TRUE))
-    install.packages(pkg)
+  pkgs <- c("naijR", "purrr")
+  pkgNoDey <- !sapply(pkgs, requireNamespace, quietly = TRUE)
+  install.packages(pkgs[pkgNoDey], repos = 'https://cran.rstudio.com')
 }, silent = TRUE
 )
 
@@ -94,7 +95,10 @@ life
 
 ---
 
-![](www/only-god-knows.jpg){width=630px}
+<div id=imgC align="center">
+![](www/img/only-god-knows.jpg){width=500px}
+</div>
+
 
 ---
 
