@@ -177,7 +177,7 @@ What is the result of the above code?
 ### Loops
 Loops allow us to run a code block over and over again.
 
-![](www/loop.webp)
+![](www/img/loop.webp)
 
 For further explanations on loops, read **[this article](https://adventureswithr.wordpress.com/2020/08/11/r-loops/)**.
 
@@ -185,7 +185,7 @@ For further explanations on loops, read **[this article](https://adventureswithr
 ## Read in a file
 Example read a table from a CSV file called *mockdata.csv*.
 
-![](www/mockdata.png)
+![](www/img/mockdata.png)
 
 ---
 
@@ -214,7 +214,7 @@ colnames(mydata)
 
 Remove a column
 
-*Task: The Serial number is useless to me. Remove them.*
+*Task: "The Serial numbers are of no use to me. Remove them."*
 
 ```{r wrangle-2}
 ncol(mydata)   # number of columns
@@ -237,7 +237,7 @@ nrow(abj.only)
 ## Explore data
 Sometimes you don't want to personally look at the data. In fact, sometimes you want your program to look at the data.
 
-![](www/Detective-with-magnifying-glass.jpg)
+![](www/img/Detective-with-magnifying-glass.jpg)
 
 ---
 
@@ -281,12 +281,42 @@ barplot(tbl)
 
 # `r sections[['prospect']]`
 ## Web applications
+R can be used to create dynamic web pages for interactive data analysis.
+
+- This means that you can use R code to work with languages like HTML, CSS and JavaScript to create such pages.
+- For this we have a web framework known as **Shiny**.
+- See a Shiny application we developed to explore global COVID-19 data **[here](https://victorordu.shinyapps.io/covid/)**.
+
 ## Database administration
-## Report generation
+R can be used to create as well as query databases.
+It works very well with DBMS like SQLite, MySQL, SQL Server, etc
+R can also be used to connect to massive Big Data such as Sparx.
+
+---
+
+## Generate documents
+Using what is known as R Markdown, we can create dynamic documents.
+The value of this is that R code is placed right inside a document. When it is evaluated, all the results of the code are placed in the resulting document.
+A good is example is this presentation. It is created entirely in R Markdown. Code can be viewed [here](https://github.com/BroVic/r-overview/blob/master/r-overview.Rmd).
+
+---
+
 ## Draw maps
-## Build websites
-## Scrape web pages
-## Numerous packages that do different things
+As part of its graphical abilities, R can draw maps.
+There are packages that have been developed to draw different types of maps.
+We developed a package called **_naijR_** that can draw maps for Nigeria.
+
+```{r, warning=FALSE}
+try(naijR::map_ng(title = "Map of Nigeria"), silent = TRUE)
+```
+
+---
+
+Numerous packages that do different things e.g.
+- build websites
+- scrape web pages
+
+For a comprehensive list of the use of R in various disciplines, visit [cRAN Task Views](https://cran.r-project.org/web/views/).
 
 
 # `r sections[['next']]`
