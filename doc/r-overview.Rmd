@@ -59,16 +59,17 @@ try(purrr::walk(sections, print_bullet), silent = TRUE)
 - Knowing how to manipulate, organize and analyze data is becoming an important skill set.
 - Data science is one of the high-paying and highly valued jobs in current times.
 - Many jobs can be done 100% remotely.
+- Data science is multi-disciplinary e.g. sciences, arts, journalism, law, etc.
 
 # `r sections[['get']]`
 
 ---
 
-- Installing R is very easy
-- R is 100% free!
-- Numerous free resources and courses.
+- Easy installation
+- 100% free!
+- Free resources and courses.
 - Global community to support learners.
-- Easy to learn: After a few weeks can use for any project.
+- Easy to learn: After a few weeks can start basic projects.
 
 
 All you need is curiosity and passion!
@@ -85,7 +86,7 @@ name <- object
 ```
 where `<-` is the **assignment operator**.
 
-For example, to create an object named `life` that has the value `42`:
+For example, to create an object called `life` that has the value `42`:
 
 ```{r}
 life <- 42
@@ -139,8 +140,7 @@ Examples include:
 ### Arithmetic operators
 
 ```{r arithmetic}
-x <- 8
-y <- 2
+x <- 8; y <- 2
 
 x + y
 x - y
@@ -260,9 +260,19 @@ nrow(abj.only)
 ```
 
 ## Explore data
-Sometimes you don't want to personally look at the data. In fact, sometimes you want your program to look at the data.
+
+<div class="panelled" id="boxes">
+  <div class="panelled" id="box1">
+- Sometimes you don't want to personally look at the data
+- At other times you want your program to look at the data.
+- R can do it!
+  </div>  <!-- box1 -->
+  <div class="panelled" id="box2">
 
 ![](www/img/Detective-with-magnifying-glass.jpg)
+  </div>  <!-- box2 -->
+</div>
+
 
 ---
 
@@ -352,9 +362,10 @@ For a comprehensive list of the use of R in various disciplines, visit [CRAN Tas
 ---
 
 - Ask questions
-- Follow our blog
-- Follow us on Twitter
-- Join our Slack group
+- Follow our blog, [Adventures with R](https://adventureswithr.wordpress.com)
+- Follow us on [Twitter](http://twitter.com/r_adventure)
+- Join our [Slack discussion and learning group](https://adventuresinr.slack.com)
+- Participate in online courses created by us and others.
 
 
 
