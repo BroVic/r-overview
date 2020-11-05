@@ -332,7 +332,7 @@ R can be used to create dynamic web pages for interactive data analysis.
 
 - Using what is known as R Markdown, we can create dynamic documents.
 - The value of this is that R code is placed right inside a document. - When it is evaluated, all the results of the code are placed in the resulting document.
-- A good is example is this presentation. It is created entirely in R Markdown. Code can be viewed [here](https://github.com/BroVic/r-overview/blob/master/r-overview.Rmd).
+- A good is example is this presentation. It is created entirely in R Markdown. Code can be viewed [here](https://github.com/BroVic/r-overview/blob/master/doc/r-overview.Rmd).
 
 ## Draw maps
 
